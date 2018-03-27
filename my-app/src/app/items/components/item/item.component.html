@@ -1,8 +1,5 @@
 <div class="card">
   <div class="card-header">
-    <!-- <span *ngIf="state.ALIVRER === item.state" class="state-alivrer">{{ item.state }}</span>
-    <span *ngIf="state.ENCOURS === item.state" class="state-encours">{{ item.state }}</span>
-    <span *ngIf="state.LIVREE === item.state" class="state-livree">{{ item.state }}</span> -->
     <span [appState]="item.state">{{ item.state }}</span>
   </div>
   <div class="card-body">
