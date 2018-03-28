@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { Page404Module } from './page404/page404.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { ItemsModule } from './items/items.module';
 import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
+import { CollectionService } from './core/services/collection/collection.service';
+import { EditResolverService } from './core/services/edit-resolver/edit-resolver.service';
 
 @NgModule({
   imports: [
@@ -21,14 +25,15 @@ import { environment } from '../environments/environment';
     SharedModule,
     HomeModule,
     NgbModule.forRoot(),
-    ItemsModule,
     AppRoutingModule,
-    Page404Module
+    Page404Module,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   declarations: [
     AppComponent
   ],
-  providers: [],
+  providers: [CollectionService, EditResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

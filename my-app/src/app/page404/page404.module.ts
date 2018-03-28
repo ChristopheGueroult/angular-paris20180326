@@ -11,9 +11,6 @@ import { Page404RoutingModule } from './page404-routing.module';
   ],
   declarations: [
     Page404Component
-  ],
-  exports: [
-    Page404Component
   ]
 })
 export class Page404Module { }
